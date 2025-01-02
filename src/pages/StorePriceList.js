@@ -74,7 +74,7 @@ const StorePriceList = () => {
                     <TableCell>Price</TableCell>
                     <TableCell>Tax</TableCell>
                     <TableCell>Vendor</TableCell>
-                    <TableCell>DoorApp</TableCell>
+                    <TableCell>System fee</TableCell>
                     <TableCell align="center">Action</TableCell>
                   </TableRow>
                 </TableHead>
@@ -86,7 +86,7 @@ const StorePriceList = () => {
                       <TableCell>{p_list.price}</TableCell>
                       <TableCell>{p_list.tax}</TableCell>
                       <TableCell>{p_list.vendor}</TableCell>
-                      <TableCell>{p_list.doorApp}</TableCell>
+                      <TableCell>{p_list.systemFee}</TableCell>
                       <TableCell align="center">
                         <Button
                           onClick={() => handleOpenUpdateModal(p_list)}

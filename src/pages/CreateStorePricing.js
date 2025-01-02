@@ -30,7 +30,7 @@ const CreateStorePricing = () => {
   const [price, setPrice] = useState("");
   const [tax, setTax] = useState("");
   const [vendor, setVendor] = useState("");
-  const [doorApp, setDoorApp] = useState("");
+  const [systemFee, setSystemFee] = useState("");
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const { token } = useSelector((state) => state.userReducher);
@@ -47,7 +47,7 @@ const CreateStorePricing = () => {
       price: parseFloat(price),
       tax: parseFloat(tax),
       vendor: parseFloat(vendor),
-      doorApp: parseFloat(doorApp),
+      systemFee: parseFloat(systemFee),
     };
   
     const resultAction = await dispatch(createStorePrice({ token, createStorePriceInfo: data }));
@@ -194,7 +194,7 @@ const CreateStorePricing = () => {
                   marginLeft: "2%",
                 }}
               >
-                DoorApp Amount
+                System fee
               </label>
               <FormControl fullWidth sx={{ m: 1 }}>
                 {/* <InputLabel htmlFor="doorApp">DoorApp</InputLabel> */}
@@ -202,9 +202,9 @@ const CreateStorePricing = () => {
                   type="number"
                   required
                   fullWidth
-                  id="doorApp"
-                  value={doorApp}
-                  onChange={(e) => setDoorApp(e.target.value)}
+                  id="systemFee"
+                  value={systemFee}
+                  onChange={(e) => setSystemFee(e.target.value)}
                   startAdornment={
                     <InputAdornment position="start">
                       {" "}

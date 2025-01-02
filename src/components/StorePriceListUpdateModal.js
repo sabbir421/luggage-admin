@@ -32,7 +32,7 @@ const StorePriceListUpdateModal = ({
   const [price, setPrice] = useState("");
   const [tax, setTax] = useState("");
   const [vendor, setVendor] = useState("");
-  const [doorApp, setDoorApp] = useState("");
+  const [systemFee, setSystemFee] = useState("");
   const [warningOpen, setWarningOpen] = useState(false);
 
   useEffect(() => {
@@ -41,12 +41,12 @@ const StorePriceListUpdateModal = ({
       setPrice(parseFloat(priceInfo.price || 0));
       setTax(parseFloat(priceInfo.tax || 0));
       setVendor(parseFloat(priceInfo.vendor || 0));
-      setDoorApp(parseFloat(priceInfo.doorApp || 0));
+      setSystemFee(parseFloat(priceInfo.systemFee || 0));
     }
   }, [priceInfo]);
 
   const handleConfirm = () => {
-    const vendorDoorAppSum = parseFloat(vendor) + parseFloat(doorApp);
+    const vendorDoorAppSum = parseFloat(vendor) + parseFloat(systemFee);
     if (parseFloat(price) !== vendorDoorAppSum) {
       setWarningOpen(true);
     } else {
@@ -56,7 +56,7 @@ const StorePriceListUpdateModal = ({
         price:parseFloat(price),
         tax:parseFloat(tax),
         vendor:parseFloat(vendor),
-        doorApp:parseFloat(doorApp),
+        systemFee:parseFloat(systemFee),
       });
     }
   };
@@ -217,18 +217,18 @@ const StorePriceListUpdateModal = ({
               marginLeft: isSmallScreen ? "25px" : "52px",
             }}
           >
-            <label style={{ marginLeft: "2%" }}>DoorApp</label>
+            <label style={{ marginLeft: "2%" }}>System fee</label>
             <FormControl fullWidth sx={{ m: 1 }}>
               <OutlinedInput
                 type="number"
                 required
                 width="80%"
-                id="doorapp"
-                value={doorApp}
+                id="systemFee"
+                value={systemFee}
                 onChange={(e) => {
                   const value = e.target.value;
                   if (value >= 0) {
-                    setDoorApp(value);
+                    setSystemFee(value);
                   }
                 }}
                 startAdornment={

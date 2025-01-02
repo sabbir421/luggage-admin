@@ -16,7 +16,7 @@ import {
   TableHead,
   TablePagination,
   TableRow,
-  IconButton,
+  
 } from "@mui/material";
 import { useDispatch, useSelector } from "react-redux";
 import {
@@ -57,7 +57,7 @@ const PendingCompany = () => {
       setSnackbarOpen(true);
       dispatch(resetCompanyStatus());
     }
-  }, [approved, dispatch, error]);
+  }, [approved, dispatch, error,reject]);
 
   const handleChangePage = (event, newPage) => {
     setPage(newPage);
